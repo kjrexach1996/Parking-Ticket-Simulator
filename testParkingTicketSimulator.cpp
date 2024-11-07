@@ -7,11 +7,13 @@
 #include "ParkedCar.h"
 #include "ParkingMeter.h"
 #include "PoliceOfficer.h"
+#include "ParkingTicket.h"
 
 using namespace std;
 
 int main()
 {
+	//Scenario 0: Creating all objects with default parameters. No ticket is issued.
 	ParkedCar myCar;
 	ParkingMeter myMeter;
 	cout << "myCar minutes: " << myCar.getMin() << endl;
@@ -19,6 +21,86 @@ int main()
 	PoliceOfficer myOfficer;
 	cout << "myOfficer name: " << myOfficer.getName() << endl;
 	myOfficer.isExpired(myCar, myMeter);
+	ParkingTicket myTicket(myCar, myMeter, myOfficer);
+	myTicket.printTicket();
+	cout << endl << endl;
+
+	//Scenario 1: Meter Minutes Purchased: 60; Car parked for 30 minutes; no ticket issued.
+	ParkedCar car1("Kia", "Forte", "Gray", "A12345", 30);
+	ParkingMeter meter1(60);
+	cout << "car1 minutes: " << car1.getMin() << endl;
+	cout << "meter1 minutes: " << meter1.getMin() << endl;
+	PoliceOfficer officerJohn("John Smith", "1111");
+	officerJohn.isExpired(car1, meter1);
+	ParkingTicket ticket1(car1, meter1, officerJohn);
+	ticket1.printTicket();
+	cout << endl << endl;
+
+	//Scenario 2: Meter Minutes Purchased: 60; Car parked for 65 minutes; ticket issued.
+	ParkedCar car2("Kia", "Soul", "Gray", "B54321", 65);
+	ParkingMeter meter2(60);
+	cout << "car2 minutes: " << car2.getMin() << endl;
+	cout << "meter2 minutes: " << meter2.getMin() << endl;
+	PoliceOfficer officerJake("Jake Paul", "1234");
+	officerJake.isExpired(car2, meter2);
+	ParkingTicket ticket2(car2, meter2, officerJake);
+	ticket2.printTicket();
+	cout << endl << endl;
+
+	//Scenario 3: Meter Minutes Purchased: 60; Car parked for 120 minutes; ticket issued.
+	ParkedCar car3("Dodge", "Charger", "Red", "2KOOL4U", 120);
+	ParkingMeter meter3(60);
+	cout << "car3 minutes: " << car3.getMin() << endl;
+	cout << "meter3 minutes: " << meter3.getMin() << endl;
+	PoliceOfficer officerMike("Mike Tyson", "2468A");
+	officerMike.isExpired(car3, meter3);
+	ParkingTicket ticket3(car3, meter3, officerMike);
+	ticket3.printTicket();
+	cout << endl << endl;
+
+	//Scenario 4: Meter Minutes Purchased: 60; Car parked for 150 minutes; ticket issued.
+	ParkedCar car4("Jeep", "Cherokee", "Orange", "CH33TO", 150);
+	ParkingMeter meter4(60);
+	cout << "car4 minutes: " << car4.getMin() << endl;
+	cout << "meter4 minutes: " << meter4.getMin() << endl;
+	PoliceOfficer officerTyler("Tyler Perry", "0369C");
+	officerTyler.isExpired(car4, meter4);
+	ParkingTicket ticket4(car4, meter4, officerTyler);
+	ticket4.printTicket();
+	cout << endl << endl;
+
+	//Scenario 5: Meter Minutes Purchased: 60; Car parked for 180 minutes; ticket issued.
+	ParkedCar car5("Hyundai", "Sonata", "Blue", "LCNSPL8", 180);
+	ParkingMeter meter5(60);
+	cout << "car5 minutes: " << car5.getMin() << endl;
+	cout << "meter5 minutes: " << meter5.getMin() << endl;
+	PoliceOfficer officerRobert("Robert Downey, Jr.", "1R0NM4N");
+	officerRobert.isExpired(car5, meter5);
+	ParkingTicket ticket5(car5, meter5, officerRobert);
+	ticket5.printTicket();
+	cout << endl << endl;
+
+	//Scenario 6: Meter Minutes Purchased: 60; Car parked for 200 minutes; ticket issued.
+	ParkedCar car6("Ford", "Mustang", "Black", "SPDRM4N", 200);
+	ParkingMeter meter6(60);
+	cout << "car6 minutes: " << car6.getMin() << endl;
+	cout << "meter6 minutes: " << meter6.getMin() << endl;
+	PoliceOfficer officerPeter("Peter Parker", "12358");
+	officerPeter.isExpired(car6, meter6);
+	ParkingTicket ticket6(car6, meter6, officerPeter);
+	ticket6.printTicket();
+	cout << endl << endl;
+
+	//Scenario 7: Meter Minutes Purchased: 90; Car parked for 275 minutes; ticket issued.
+	ParkedCar car7("Toyota", "Highlander", "White", "UGH IDK", 275);
+	ParkingMeter meter7(90);
+	cout << "car7 minutes: " << car7.getMin() << endl;
+	cout << "meter7 minutes: " << meter7.getMin() << endl;
+	PoliceOfficer officerBob("Spongebob Squarepants", "1123");
+	officerBob.isExpired(car7, meter7);
+	ParkingTicket ticket7(car7, meter7, officerBob);
+	ticket7.printTicket();
+	cout << endl << endl;
 }
 
 

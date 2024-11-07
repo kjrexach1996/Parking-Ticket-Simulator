@@ -1,4 +1,4 @@
-//ParkedCar.cpp - implementation file for parkedCar class.
+//ParkedCar.cpp - implementation file for ParkedCar class.
 
 #include <string>
 #include "ParkedCar.h"
